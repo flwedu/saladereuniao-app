@@ -1,4 +1,4 @@
-export interface RoomEvent {
+export default interface IRoomEvent {
     id: number,
     description: string,
     name: string,

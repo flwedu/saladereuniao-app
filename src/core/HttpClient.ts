@@ -1,5 +1,6 @@
 import axios from "axios";
-export default class HttpClient {
+import { IHttpClient } from "./IHttpClient";
+export default class HttpClient implements IHttpClient {
 
     get(url: string) {
         return axios.get(url);

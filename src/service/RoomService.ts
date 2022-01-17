@@ -1,5 +1,5 @@
 import IRoom from "../../src/model/Room";
-import { HttpClient } from "../../src/core/HttpClient";
+import HttpClient from "../core/HttpClient";
 import { Service } from "../../src/service/Service";
 
 export class RoomService implements Service<IRoom> {

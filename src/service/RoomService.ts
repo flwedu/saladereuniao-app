@@ -23,25 +23,31 @@ export class RoomService implements Service<IRoom> {
     save(data: IRoom): Promise<any> {
         return new Promise((resolve, reject) => {
             this.httpClient.post(this.baseURL, data).then(response => {
-                if (response.status == 201)
-                    resolve(response);
+                if (response.status == 200)
+                    resolve(response.data);
                 else
-                    reject(response)
+                    reject()
             }).catch(handleError)
         })
     }
     update(id: number, data: IRoom): Promise<any> {
         return new Promise((resolve, reject) => {
-            axios.put(`${this.baseURL}/${id}`, data).then(response => resolve(response)).catch(handleError)
+            axios.put(`${this.baseURL}/${id}`).then(response => {
+                if (response.status == 202)
+                    resolve(response.data)
+                else
+                    reject()
+            }
+            ).catch(handleError)
         })
     }
-    delete(id: number): Promise<any> {
+    delete(id: number): Promise<void> {
         return new Promise((resolve, reject) => {
             axios.delete(`${this.baseURL}/${id}`).then(response => {
                 if (response.status == 202)
-                    resolve(response)
+                    resolve()
                 else
-                    reject(response)
+                    reject()
             }
             ).catch(handleError)
         })

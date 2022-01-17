@@ -1,18 +1,19 @@
+import axios from "axios";
 export default class HttpClient {
 
-    get(url: string): Promise<any> {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const result = await fetch(url);
-                if (result.status == 200)
-                    resolve(result);
+    get(url: string) {
+        return axios.get(url);
+    }
 
-                else
-                    reject(result);
-            }
-            catch (error: any) {
-                reject();
-            }
-        });
+    post(url: string, data: any) {
+        return axios.post(url, data);
+    }
+
+    put(url: string, data: any) {
+        return axios.put(url, data);
+    }
+
+    delete(url: string, data: any) {
+        return axios.delete(url)
     }
 }

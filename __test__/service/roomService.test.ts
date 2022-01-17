@@ -1,13 +1,11 @@
 import IRoom from "../../src/model/Room"
 
 export class HttpClient {
-    constructor(private baseUrl) { };
 
-    get(): Promise<any> {
+    get(url: string): Promise<any> {
         return new Promise(async (resolve, reject) => {
-
             try {
-                const result = await fetch(this.baseUrl);
+                const result = await fetch(url);
                 if (result.status == 200)
                     return resolve(result.body)
                 return reject(result.body);
@@ -15,7 +13,6 @@ export class HttpClient {
             catch (error: any) {
                 reject();
             }
-
         })
     }
 }
@@ -51,9 +48,9 @@ export class RoomService implements Service<IRoom>{
     }
 }
 
-it("Should return an array when requesting for all", async () => {
+it("Should return an promise when requesting for all", async () => {
 
-    const httpClient = new HttpClient("https:localhost:8080/api/v1/rooms");
+    const httpClient = new HttpClient();
     const service = new RoomService(httpClient);
     const result = await service.listAll();
 

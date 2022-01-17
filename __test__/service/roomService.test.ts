@@ -7,8 +7,9 @@ export class HttpClient {
             try {
                 const result = await fetch(url);
                 if (result.status == 200)
-                    return resolve(result.body)
-                return reject(result.body);
+                    resolve(result)
+                else
+                    reject(result);
             }
             catch (error: any) {
                 reject();

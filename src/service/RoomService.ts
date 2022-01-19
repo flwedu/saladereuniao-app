@@ -22,8 +22,8 @@ export class RoomService implements Service<IRoom> {
     save(data: IRoom): Promise<any> {
         return new Promise((resolve, reject) => {
             this.httpClient.post(this.baseURL, data).then(response => {
-                if (response.status == 200)
-                    resolve(response.data);
+                if (response.status == 201)
+                    resolve(response);
                 else
                     reject()
             }).catch(handleError)
@@ -33,7 +33,7 @@ export class RoomService implements Service<IRoom> {
         return new Promise((resolve, reject) => {
             this.httpClient.put(`${this.baseURL}/${id}`, data).then(response => {
                 if (response.status == 202)
-                    resolve(response.data)
+                    resolve(response)
                 else
                     reject()
             }

@@ -5,7 +5,7 @@ import { handleError } from "../utils/promiseHelpers";
 
 export class RoomService implements Service<IRoom> {
 
-    private baseURL = "http://localhost:8080/rooms"
+    private baseURL = "http://localhost:8080/api/v1/rooms"
 
     constructor(private httpClient: HttpClient) { };
 

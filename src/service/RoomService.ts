@@ -10,12 +10,12 @@ export class RoomService implements Service<IRoom> {
 
     listAll(): Promise<IRoom[]> {
         return new Promise((resolve, reject) => {
-            this.httpClient.get(this.baseURL).then(response => resolve(response.data)).catch(handleError)
+            this.httpClient.get(this.baseURL).then(response => resolve(response.data)).catch(err => reject(err))
         })
     }
     findById(id: number): Promise<IRoom> {
         return new Promise((resolve, reject) => {
-            this.httpClient.get(`${this.baseURL}/${id}`).then(response => resolve(response.data)).catch(handleError)
+            this.httpClient.get(`${this.baseURL}/${id}`).then(response => resolve(response.data)).catch(err => reject(err))
         })
     }
     save(data: IRoom): Promise<any> {
@@ -25,7 +25,7 @@ export class RoomService implements Service<IRoom> {
                     resolve(response);
                 else
                     reject()
-            }).catch(handleError)
+            }).catch(err => reject(err))
         })
     }
     update(id: number, data: IRoom): Promise<any> {
@@ -36,7 +36,7 @@ export class RoomService implements Service<IRoom> {
                 else
                     reject()
             }
-            ).catch(handleError)
+            ).catch(err => reject(err))
         })
     }
     delete(id: number): Promise<void> {
@@ -47,7 +47,7 @@ export class RoomService implements Service<IRoom> {
                 else
                     reject()
             }
-            ).catch(handleError)
+            ).catch(err => reject(err))
         })
     }
 }

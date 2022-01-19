@@ -1,7 +1,6 @@
 import IRoom from "../../src/model/Room";
 import { Service } from "../../src/service/Service";
 import HttpClient from "../core/HttpClient";
-import { handleError } from "../utils/promiseHelpers";
 
 export class RoomService implements Service<IRoom> {
 

@@ -14,7 +14,7 @@ export default class HttpClient implements IHttpClient {
         return axios.put(url, data);
     }
 
-    delete(url: string, data: any) {
+    delete(url: string) {
         return axios.delete(url)
     }
 }

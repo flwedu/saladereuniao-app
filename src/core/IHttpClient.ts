@@ -6,5 +6,5 @@ export interface IHttpClient {
 
     put(url: string, data: any): Promise<any>;
 
-    delete(url: string, data: any): Promise<any>;
+    delete(url: string): Promise<any>;
 }

@@ -14,14 +14,14 @@ const rooms: IRoom[] = Array.of(room, room);
 const httpClientFake: IHttpClient = {
     get: (url: string) => Promise.resolve({ status: 200, data: rooms }),
     post: (url: string, data: any) => Promise.resolve({
-        status: 200, data: {
-            id: 2,
-            name: "Test Room",
-            desciption: "Second test room"
-        }
+        status: 201,
+        headers: {
+            location: "testURL"
+        },
     }),
     put: (url: string, data: any) => Promise.resolve({
-        status: 202, data: {
+        status: 202,
+        data: {
             id: 1,
             name: "Updated Test Room",
             desciption: "Just a test room"
@@ -64,10 +64,8 @@ describe("Service methods", () => {
 
         const result = await service.save(room);
 
-        expect(result).toStrictEqual({
-            id: 2,
-            name: "Test Room",
-            desciption: "Second test room"
+        expect(result.headers).toStrictEqual({
+            location: "testURL"
         });
         expect(post).toHaveBeenCalledTimes(1);
     })
@@ -79,7 +77,7 @@ describe("Service methods", () => {
 
         const result = await service.update(1, room);
 
-        expect(result).toStrictEqual({
+        expect(result.data).toStrictEqual({
             id: 1,
             name: "Updated Test Room",
             desciption: "Just a test room"

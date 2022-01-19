@@ -1,7 +1,6 @@
 import IRoom from "../../src/model/Room";
-import HttpClient from "../core/HttpClient";
 import { Service } from "../../src/service/Service";
-import axios from "axios";
+import HttpClient from "../core/HttpClient";
 import { handleError } from "../utils/promiseHelpers";
 
 export class RoomService implements Service<IRoom> {
@@ -32,7 +31,7 @@ export class RoomService implements Service<IRoom> {
     }
     update(id: number, data: IRoom): Promise<any> {
         return new Promise((resolve, reject) => {
-            axios.put(`${this.baseURL}/${id}`).then(response => {
+            this.httpClient.put(`${this.baseURL}/${id}`, data).then(response => {
                 if (response.status == 202)
                     resolve(response.data)
                 else
@@ -43,7 +42,7 @@ export class RoomService implements Service<IRoom> {
     }
     delete(id: number): Promise<void> {
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.baseURL}/${id}`).then(response => {
+            this.httpClient.delete(`${this.baseURL}/${id}`).then(response => {
                 if (response.status == 202)
                     resolve()
                 else

@@ -3,7 +3,7 @@
     <span>A list with all avaliable rooms</span>
     <ul>
       <li v-for="room in rooms" :key="room.id">
-        <b>{{ room.id }}</b
+        <strong>{{ room.id }}</strong
         >......{{ room.name }}
       </li>
     </ul>

@@ -1,5 +1,7 @@
 <template>
-  <header>Sala de Reuniões App</header>
+  <header>
+    <h1>Sala de Reuniões App</h1>
+  </header>
 </template>
 
 <script>
@@ -8,4 +10,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+header {
+  width: 100%;
+  height: 6.25rem;
+  background: var(--color-main);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 36;
+  color: var(--color-white);
+}
+</style>

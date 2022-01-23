@@ -27,6 +27,8 @@ E depois
 yarn serve
 ```
 
+As configurações para conexão com a API REST do backend estão em `src/config.js`
+
 ## Gerando uma build do projeto
 
 Para gerar uma build de produção, execute:

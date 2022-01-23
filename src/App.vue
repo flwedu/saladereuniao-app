@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-app />
-    <room-list />
+    <room-list :rooms="rooms" />
   </div>
 </template>
 
@@ -9,8 +9,10 @@
 import HeaderApp from "./components/HeaderApp.vue";
 import RoomList from "./components/RoomList.vue";
 import { RoomService } from "./service/RoomService";
+import { HttpClient } from "./core/HttpClient";
 
-const roomsService = new RoomService();
+const httpClient = new HttpClient();
+const roomsService = new RoomService(httpClient);
 
 export default {
   name: "App",

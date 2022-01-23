@@ -1,5 +1,5 @@
 import axios from "axios";
-export default class HttpClient {
+export class HttpClient {
   get(url) {
     return axios.get(url);
   }

@@ -1,10 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap");
+<template>
+  <header>
+    <h1>Sala de Reuniões App</h1>
+  </header>
+</template>
 
-:root {
-  --color-main: #9f64ff;
-  --color-white: #ffffff;
-}
+<script>
+export default {
+  components: {},
+};
+</script>
 
+<style scoped>
 header {
   width: 100%;
   height: 6.25rem;
@@ -22,8 +28,4 @@ h1 {
   font-size: 36;
   color: var(--color-white);
 }
-
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 14;
-}
+</style>

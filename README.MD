@@ -1,6 +1,6 @@
 # Descrição
 
-Essa é uma aplicação web criada utilizando HTML e Typescript para consumir uma API Rest [saladereuniao](https://github.com/flwedu/dio-saladereuniao).
+Essa é uma aplicação web criada utilizando Vue.js e Typescript para consumir uma API Rest [saladereuniao](https://github.com/flwedu/dio-saladereuniao).
 
 Foi desenvolvida com o intuito de consolidar meu aprendizado sobre as tecnologias envolvidas no projeto. Também estou exercitando algumas práticas de desenvolvimento, como TDD.
 
@@ -8,7 +8,7 @@ Foi desenvolvida com o intuito de consolidar meu aprendizado sobre as tecnologia
 
 - HTML
 - Typescript
-- Webpack
+- Vue.js
 - SCSS
 - JEST
 - Axios
@@ -24,7 +24,15 @@ yarn install
 E depois
 
 ```bash
-yarn dev-server
+yarn serve
 ```
 
-A aplicação será executada utilizando o `webpack-dev-server`.
+## Gerando uma build do projeto
+
+Para gerar uma build de produção, execute:
+
+```bash
+yarn build
+```
+
+A aplicação será executada utilizando o `vue-cli`.

@@ -32,18 +32,22 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 :root {
+  --color-border: #6e6e6e;
   --color-main: #9f64ff;
+  --color-text-light: #ffffdd;
+  --color-text: #21282f;
+  --color-dark: #202020;
   --color-white: #ffffff;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 </style>

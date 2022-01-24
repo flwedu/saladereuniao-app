@@ -18,13 +18,13 @@ Foi desenvolvida com o intuito de consolidar meu aprendizado sobre as tecnologia
 Após clonar o projeto, execute:
 
 ```bash
-yarn install
+npm install
 ```
 
 E depois
 
 ```bash
-yarn serve
+npm run serve
 ```
 
 As configurações para conexão com a API REST do backend estão em `src/config.js`
@@ -34,7 +34,7 @@ As configurações para conexão com a API REST do backend estão em `src/config
 Para gerar uma build de produção, execute:
 
 ```bash
-yarn build
+npm run build
 ```
 
 A aplicação será executada utilizando o `vue-cli`.

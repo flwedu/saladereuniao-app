@@ -19,7 +19,7 @@ const httpClient = new HttpClient();
 const roomService = new RoomService(httpClient);
 
 export default {
-  name: "room-list-card",
+  name: "room-card",
   props: {
     room: {
       id: Number,

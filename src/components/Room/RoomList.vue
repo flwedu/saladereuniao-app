@@ -2,15 +2,15 @@
   <section>
     <span>A list with all avaliable rooms</span>
     <div>
-      <room-list-card v-for="room in rooms" :room="room" :key="room.id" />
+      <room-card v-for="room in rooms" :room="room" :key="room.id" />
     </div>
   </section>
 </template>
 
 <script>
-import RoomListCard from "./RoomListCard.vue";
+import RoomCard from "./RoomCard.vue";
 export default {
-  components: { RoomListCard },
+  components: { RoomCard },
   name: "room-list",
   props: {
     rooms: [],

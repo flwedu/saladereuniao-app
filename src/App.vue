@@ -7,7 +7,7 @@
 
 <script>
 import HeaderApp from "./components/layout/HeaderApp.vue";
-import RoomList from "./components/RoomList.vue";
+import RoomList from "./components/Room/RoomList.vue";
 import { RoomService } from "./service/RoomService";
 import { HttpClient } from "./core/HttpClient";
 

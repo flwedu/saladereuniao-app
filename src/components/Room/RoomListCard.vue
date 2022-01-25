@@ -6,12 +6,18 @@
     </div>
     <div class="body">
       <span>"{{ room.description }}"</span>
-      <button>See Events</button>
+      <button @click="loadEvents(room.id)">See Events</button>
     </div>
   </div>
 </template>
 
 <script>
+import { HttpClient } from "../../core/HttpClient";
+import { RoomService } from "../../service/RoomService";
+
+const httpClient = new HttpClient();
+const roomService = new RoomService(httpClient);
+
 export default {
   name: "room-list-card",
   props: {
@@ -19,6 +25,14 @@ export default {
       id: Number,
       name: String,
       description: String,
+    },
+  },
+  methods: {
+    loadEvents(id) {
+      roomService
+        .findRoomEvents(id, 0)
+        .then((response) => console.log(response.data.content))
+        .catch(console.error);
     },
   },
 };

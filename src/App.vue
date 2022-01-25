@@ -1,32 +1,17 @@
 <template>
   <div id="app">
     <header-app />
-    <room-list :rooms="rooms" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import HeaderApp from "./components/layout/HeaderApp.vue";
-import RoomList from "./components/Room/RoomList.vue";
-import { RoomService } from "./service/RoomService";
-import { HttpClient } from "./core/HttpClient";
-
-const httpClient = new HttpClient();
-const roomsService = new RoomService(httpClient);
 
 export default {
   name: "App",
   components: {
     HeaderApp,
-    RoomList,
-  },
-  data: function () {
-    return {
-      rooms: [],
-    };
-  },
-  created: function () {
-    roomsService.listAll().then((response) => (this.rooms = response));
   },
 };
 </script>

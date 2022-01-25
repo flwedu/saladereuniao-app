@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import App from "./App.vue";
 import RoomList from "./components/Room/RoomList.vue";
 import RoomEventList from "./components/RoomEvents/RoomEventList.vue";
+import RoomDetails from "./components/Room/RoomDetails.vue";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -10,12 +11,18 @@ Vue.use(VueRouter);
 // Describing routes
 const routes = [
   {
-    path: "",
+    path: "/",
     component: RoomList,
   },
   {
-    path: "/events",
-    component: RoomEventList,
+    path: "/room/:roomId",
+    component: RoomDetails,
+    children: [
+      {
+        path: "events",
+        component: RoomEventList,
+      },
+    ],
   },
 ];
 

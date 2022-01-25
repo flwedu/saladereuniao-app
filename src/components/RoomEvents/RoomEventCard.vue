@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .card {
   border: 1px solid var(--color-dark);
   border-radius: 4px;

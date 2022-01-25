@@ -20,7 +20,8 @@
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "dotenv": "^14.2.0",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.3"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",

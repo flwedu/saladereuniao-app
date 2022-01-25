@@ -9,15 +9,32 @@
 </template>
 
 <script>
+import { HttpClient } from "../../core/HttpClient";
+import { RoomService } from "../../service/RoomService";
 import RoomEventCard from "./RoomEventCard.vue";
+
+const httpClient = new HttpClient();
+const roomService = new RoomService(httpClient);
 
 export default {
   name: "room-event-list",
   components: {
     RoomEventCard,
   },
-  props: {
-    roomEvents: [],
+  data: function () {
+    return {
+      roomEvents: [],
+      eventsPage: Number,
+    };
+  },
+  created: function () {
+    this.eventsPage = 0;
+    roomService
+      .findRoomEvents(this.$route.params.roomId, this.eventsPage)
+      .then((response) => {
+        this.roomEvents = response.data.content;
+      })
+      .catch(console.error);
   },
 };
 </script>

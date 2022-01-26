@@ -6,18 +6,16 @@
     </div>
     <div class="body">
       <span>"{{ room.description }}"</span>
-      <button @click="loadEvents(room.id)">See Events</button>
+      <router-link
+        :to="{ name: 'room', params: { roomId: room.id } }"
+        tag="button"
+        >See Details</router-link
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { HttpClient } from "../../core/HttpClient";
-import { RoomService } from "../../service/RoomService";
-
-const httpClient = new HttpClient();
-const roomService = new RoomService(httpClient);
-
 export default {
   name: "room-card",
   props: {

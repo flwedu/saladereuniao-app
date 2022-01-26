@@ -54,9 +54,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.card {
-  border: 1px solid var(--color-dark);
-  border-radius: 4px;
-}
-</style>
+<style scoped></style>

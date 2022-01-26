@@ -6,8 +6,9 @@
           >room name:<input
             type="text"
             name="name"
-            v-model="room.name"
             id="name"
+            v-model="room.name"
+            :readonly="!editing"
         /></label>
         <label for="description"
           >room description:<input
@@ -15,6 +16,7 @@
             name="description"
             id="name"
             v-model="room.description"
+            :readonly="!editing"
         /></label>
       </div>
       <div class="buttons">

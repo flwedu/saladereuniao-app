@@ -16,10 +16,12 @@ const routes = [
   },
   {
     path: "/room/:roomId",
+    name: "room",
     component: RoomDetails,
     children: [
       {
         path: "events",
+        name: "events",
         component: RoomEventList,
       },
     ],

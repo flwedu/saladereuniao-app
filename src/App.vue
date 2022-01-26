@@ -38,4 +38,9 @@ export default {
   text-align: center;
   color: var(--color-text);
 }
+
+input,
+textarea {
+  text-align: center;
+}
 </style>

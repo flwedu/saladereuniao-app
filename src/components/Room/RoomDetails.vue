@@ -113,7 +113,6 @@ textarea {
   padding: 0.3rem;
   height: auto;
   resize: none;
-  text-align: center;
 }
 
 .form-field {

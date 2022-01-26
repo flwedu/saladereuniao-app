@@ -90,4 +90,32 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+/* Adjusting the height inherited from RoomCard component */
+.card {
+  height: 16rem;
+}
+
+.card > .body {
+  grid-template-rows: auto;
+}
+
+/* adjusting the separation of the buttons divs */
+.card > .buttons {
+  margin-top: 1rem;
+}
+
+input[type="text"],
+textarea {
+  border: 1px dotted var(--color-border);
+  padding: 0.3rem;
+  height: auto;
+  resize: none;
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+</style>

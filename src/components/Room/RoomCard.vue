@@ -41,8 +41,8 @@ export default {
 .card > .head {
   font-weight: 900;
   color: var(--color-main);
-  display: grid;
-  grid-template-columns: 1fr 9fr;
+  display: flex;
+  justify-content: space-evenly;
   padding: 1rem 0;
 }
 .card > .body {

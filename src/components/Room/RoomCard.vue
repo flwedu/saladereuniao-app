@@ -25,14 +25,6 @@ export default {
       description: String,
     },
   },
-  methods: {
-    loadEvents(id) {
-      roomService
-        .findRoomEvents(id, 0)
-        .then((response) => console.log(response.data.content))
-        .catch(console.error);
-    },
-  },
 };
 </script>
 

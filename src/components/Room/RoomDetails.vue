@@ -20,7 +20,7 @@
       <div class="buttons">
         <input v-if="!editing" type="button" value="Edit" @click="editMode()" />
         <input v-if="editing" type="button" value="Save" @click="save()" />
-        <input v-if="editing" type="button" value="Cancel" />
+        <input v-if="editing" type="button" value="Cancel" @click="cancel()" />
       </div>
     </form>
     <room-event-list />
@@ -41,14 +41,21 @@ export default {
     return {
       editing: false,
       room: {},
+      roomBackup: {},
     };
   },
   methods: {
     editMode: function () {
       this.editing = true;
+      this.roomBackup = this.room;
     },
     save: function () {
       this.editing = false;
+      roomService.save(this.room).then(alert("New room data saved"));
+    },
+    cancel: function () {
+      this.editing = false;
+      this.room = this.roomBackup;
     },
   },
   created: function () {

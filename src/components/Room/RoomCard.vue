@@ -37,6 +37,7 @@ export default {
   border-radius: 5px;
   margin: 1rem;
   box-shadow: 0.2rem 0.3rem 0.5rem var(--color-dark);
+  display: grid;
 }
 .card > .head {
   font-weight: 900;

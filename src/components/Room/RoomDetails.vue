@@ -24,6 +24,7 @@
       </div>
       <div class="buttons">
         <input
+          id="button__edit"
           class="button"
           v-if="!editing"
           type="button"
@@ -31,6 +32,7 @@
           @click="editMode()"
         />
         <input
+          id="button__save"
           class="button"
           v-if="editing"
           type="button"
@@ -38,6 +40,7 @@
           @click="save()"
         />
         <input
+          id="button__cancel"
           class="button"
           v-if="editing"
           type="button"
@@ -117,5 +120,14 @@ textarea {
 .form-field {
   display: flex;
   flex-direction: column;
+}
+
+/* Button colors */
+#button__save {
+  background: var(--color-sucess);
+}
+
+#button__cancel {
+  background: var(--color-danger);
 }
 </style>

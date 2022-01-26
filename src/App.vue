@@ -26,6 +26,9 @@ export default {
   --color-text: #21282f;
   --color-dark: #202020;
   --color-white: #ffffff;
+  --color-sucess: #15b5b0;
+  --color-danger: #f51720;
+  --color-alert: #f8d210;
 }
 
 #app {

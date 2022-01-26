@@ -14,7 +14,7 @@
           type="datetime"
           name="startingTime"
           id="startingTime"
-          :value="roomEvent.startingTime"
+          :value="startingTimeLocale"
       /></label>
       <label for="endingTime"
         >Ending at:
@@ -22,7 +22,7 @@
           type="datetime"
           name="endingTime"
           id="endingTime"
-          :value="roomEvent.endingTime"
+          :value="endingTimeLocale"
       /></label>
     </div>
   </div>
@@ -39,6 +39,16 @@ export default {
       startingTime: Date,
       endingTime: Date,
       roomId: Number,
+    },
+  },
+  computed: {
+    startingTimeLocale: function () {
+      const dateArray = this.roomEvent.startingTime;
+      return new Date(...dateArray).toLocaleString();
+    },
+    endingTimeLocale: function () {
+      const dateArray = this.roomEvent.endingTime;
+      return new Date(...dateArray).toLocaleString();
     },
   },
 };

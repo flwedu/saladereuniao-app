@@ -49,6 +49,7 @@
         />
       </div>
     </form>
+    <p>This is a list of all events in this room:</p>
     <room-event-list />
   </div>
 </template>

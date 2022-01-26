@@ -9,6 +9,7 @@
       <router-link
         :to="{ name: 'room', params: { roomId: room.id } }"
         tag="button"
+        class="button"
         >See Details</router-link
       >
     </div>
@@ -28,7 +29,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .card {
   width: 20rem;
   height: 10rem;
@@ -37,21 +38,21 @@ export default {
   margin: 1rem;
   box-shadow: 0.2rem 0.3rem 0.5rem var(--color-dark);
 }
-.head {
+.card > .head {
   font-weight: 900;
   color: var(--color-main);
   display: grid;
   grid-template-columns: 1fr 9fr;
   padding: 1rem 0;
 }
-.body {
+.card > .body {
   font-weight: 100;
   display: grid;
   grid-template-rows: 5fr 3fr;
   justify-items: center;
 }
 
-button {
+.button {
   font-weight: 500;
   width: 6rem;
   height: 2rem;

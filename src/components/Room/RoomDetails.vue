@@ -3,7 +3,7 @@
     <form action="" method="post" class="card">
       <div class="head"><span>Room Details</span></div>
       <div class="body">
-        <label for="name"
+        <label for="name" class="form-field"
           >room name:<input
             type="text"
             name="name"
@@ -11,14 +11,16 @@
             v-model="room.name"
             :readonly="!editing"
         /></label>
-        <label for="description"
-          >room description:<input
+        <label for="description" class="form-field"
+          >room description:<textarea
             type="text"
             name="description"
-            id="name"
+            id="description"
+            rows="4"
             v-model="room.description"
             :readonly="!editing"
-        /></label>
+          />
+        </label>
       </div>
       <div class="buttons">
         <input

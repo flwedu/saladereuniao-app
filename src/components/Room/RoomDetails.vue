@@ -78,7 +78,10 @@ export default {
     },
     save: function () {
       this.editing = false;
-      roomService.save(this.room).then(alert("New room data saved"));
+      roomService
+        .update(this.room.id, this.room)
+        .then(console.log)
+        .catch(console.error);
     },
     cancel: function () {
       this.editing = false;

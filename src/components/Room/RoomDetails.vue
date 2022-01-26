@@ -103,11 +103,6 @@ export default {
   grid-template-rows: auto;
 }
 
-/* adjusting the separation of the buttons divs */
-.card > .buttons {
-  margin-top: 1rem;
-}
-
 input[type="text"],
 textarea {
   border: 1px dotted var(--color-border);

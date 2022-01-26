@@ -6,12 +6,14 @@
     </div>
     <div class="body">
       <span>"{{ room.description }}"</span>
-      <router-link
-        :to="{ name: 'room', params: { roomId: room.id } }"
-        tag="button"
-        class="button"
-        >See Details</router-link
-      >
+      <div class="buttons">
+        <router-link
+          :to="{ name: 'room', params: { roomId: room.id } }"
+          tag="button"
+          class="button"
+          >See Details</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -51,6 +53,13 @@ export default {
   display: grid;
   grid-template-rows: 5fr 3fr;
   justify-items: center;
+}
+
+/* adjusting the separation of the buttons divs */
+.card > .buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 .button {

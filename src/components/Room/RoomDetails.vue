@@ -1,7 +1,8 @@
 <template>
   <div v-if="room">
-    <form action="" method="post">
-      <div class="data">
+    <form action="" method="post" class="card">
+      <div class="head"><span>Room Details</span></div>
+      <div class="body">
         <label for="name"
           >room name:<input
             type="text"
@@ -20,9 +21,27 @@
         /></label>
       </div>
       <div class="buttons">
-        <input v-if="!editing" type="button" value="Edit" @click="editMode()" />
-        <input v-if="editing" type="button" value="Save" @click="save()" />
-        <input v-if="editing" type="button" value="Cancel" @click="cancel()" />
+        <input
+          class="button"
+          v-if="!editing"
+          type="button"
+          value="Edit"
+          @click="editMode()"
+        />
+        <input
+          class="button"
+          v-if="editing"
+          type="button"
+          value="Save"
+          @click="save()"
+        />
+        <input
+          class="button"
+          v-if="editing"
+          type="button"
+          value="Cancel"
+          @click="cancel()"
+        />
       </div>
     </form>
     <room-event-list />

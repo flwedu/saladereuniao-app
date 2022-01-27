@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>Sala de Reuniões App</h1>
+    <router-link :to="{ path: '/' }">
+      <h1>Sala de Reuniões App</h1>
+    </router-link>
   </header>
 </template>
 
@@ -27,5 +29,9 @@ h1 {
   font-family: "Roboto", sans-serif;
   font-size: 36;
   color: var(--color-white);
+}
+
+a {
+  text-decoration: none;
 }
 </style>

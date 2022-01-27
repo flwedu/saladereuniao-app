@@ -1,29 +1,39 @@
 <template>
-  <div class="card">
-    <div class="header">
-      <span>{{ roomEvent.name }}</span>
+  <div class="card" id="event-card">
+    <div class="head">
+      <span>"{{ roomEvent.name }}"</span>
     </div>
     <div class="body">
-      <label for="description"
+      <label for="description" class="form-field"
         >Description:
-        <textarea id="description" v-text="roomEvent.description" />
+        <textarea
+          id="description"
+          v-model="roomEvent.description"
+          rows="4"
+          readonly="true"
+        />
       </label>
-      <label for="startingTime"
+      <label for="startingTime" class="form-field"
         >Starting at:
         <input
           type="datetime"
           name="startingTime"
           id="startingTime"
           :value="startingTimeLocale"
+          readonly="true"
       /></label>
-      <label for="endingTime"
+      <label for="endingTime" class="form-field"
         >Ending at:
         <input
           type="datetime"
           name="endingTime"
           id="endingTime"
           :value="endingTimeLocale"
+          readonly="true"
       /></label>
+    </div>
+    <div class="buttons">
+      <input class="button" type="button" value="Edit" />
     </div>
   </div>
 </template>
@@ -54,4 +64,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.card {
+  height: 18rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+</style>

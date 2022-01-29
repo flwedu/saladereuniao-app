@@ -55,10 +55,4 @@ export class RoomService {
         .catch((err) => reject(err));
     });
   }
-
-  findRoomEvents(roomId, pageNumber) {
-    return this.httpClient.get(
-      `${this.baseURL}/${roomId}/events/?page=${pageNumber}`
-    );
-  }
 }

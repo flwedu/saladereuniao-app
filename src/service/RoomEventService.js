@@ -6,10 +6,16 @@ export class RoomEventService {
     this.baseURL = `http://localhost:${config.API_PORT}/${config.API_EVENTS}`;
   }
 
-  listAll() {
+  /**
+   * Load all events.
+   * @param {number null} roomId
+   * @param {number} pageNumber
+   * @returns
+   */
+  listAll(roomId, pageNumber) {
     return new Promise((resolve, reject) => {
       this.httpClient
-        .get(this.baseURL)
+        .get(`${this.baseURL}/${roomId && ""}/events/?page=${pageNumber}`)
         .then((response) => resolve(response.data))
         .catch((err) => reject(err));
     });

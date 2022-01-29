@@ -26,6 +26,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/events/:pageNumber",
+    name: "allEvents",
+    component: RoomEventList,
+  },
 ];
 
 // Creating the router

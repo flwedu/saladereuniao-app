@@ -8,15 +8,17 @@ export class RoomEventService {
 
   /**
    * Load all events.
-   * @param {number || null} roomId
+   * @param {number} roomId
    * @param {number} pageNumber
    * @returns
    */
   listAll(roomId, pageNumber) {
+    const page = pageNumber || 0;
+
     return new Promise((resolve, reject) => {
       const getUrl = roomId
-        ? `${URL_ROOMS}/${roomId}/events?page=${pageNumber}`
-        : `${URL_EVENTS}?page=${pageNumber}`;
+        ? `${URL_ROOMS}/${roomId}/events?page=${page}`
+        : `${URL_EVENTS}?page=${page}`;
       console.log("URL:", getUrl);
 
       this.httpClient

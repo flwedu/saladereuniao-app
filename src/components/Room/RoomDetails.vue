@@ -68,13 +68,13 @@ export default {
     return {
       editing: false,
       room: {},
-      roomBackup: {},
+      roomBackup: String,
     };
   },
   methods: {
     editMode: function () {
       this.editing = true;
-      this.roomBackup = this.room;
+      this.roomBackup = JSON.stringify(this.room);
     },
     save: function () {
       this.editing = false;
@@ -85,7 +85,7 @@ export default {
     },
     cancel: function () {
       this.editing = false;
-      this.room = this.roomBackup;
+      this.room = JSON.parse(this.roomBackup);
     },
   },
   created: function () {

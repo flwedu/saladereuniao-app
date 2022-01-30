@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { RoomEventService } from "../../src/service/RoomEventService";
+import { RoomEventService } from "../../../../src/service/RoomEventService";
 
 // mock data
 const content = [

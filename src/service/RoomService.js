@@ -1,9 +1,9 @@
-import { config } from "../config";
+import { URL_ROOMS } from "../config";
 
 export class RoomService {
   constructor(httpClient) {
     this.httpClient = httpClient;
-    this.baseURL = `http://localhost:${config.API_PORT}/${config.API_ROOMS}`;
+    this.baseURL = URL_ROOMS;
   }
 
   listAll() {

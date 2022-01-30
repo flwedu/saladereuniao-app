@@ -1,21 +1,26 @@
-import { config } from "../config";
+import { URL_EVENTS, URL_ROOMS } from "../config";
 
 export class RoomEventService {
   constructor(httpClient) {
     this.httpClient = httpClient;
-    this.baseURL = `http://localhost:${config.API_PORT}/${config.API_EVENTS}`;
+    this.baseURL = URL_EVENTS;
   }
 
   /**
    * Load all events.
-   * @param {number null} roomId
+   * @param {number || null} roomId
    * @param {number} pageNumber
    * @returns
    */
   listAll(roomId, pageNumber) {
     return new Promise((resolve, reject) => {
+      const getUrl = roomId
+        ? `${URL_ROOMS}/${roomId}/events?page=${pageNumber}`
+        : `${URL_EVENTS}?page=${pageNumber}`;
+      console.log("URL:", getUrl);
+
       this.httpClient
-        .get(`${this.baseURL}/${roomId && ""}/events/?page=${pageNumber}`)
+        .get(getUrl)
         .then((response) => resolve(response.data))
         .catch((err) => reject(err));
     });

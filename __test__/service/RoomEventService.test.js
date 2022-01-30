@@ -19,18 +19,10 @@ const httpClientFake = {
   post: (_url, _data) =>
     Promise.resolve({
       status: 201,
-      headers: {
-        location: "testURL",
-      },
     }),
   put: (_url, _data) =>
     Promise.resolve({
       status: 202,
-      data: {
-        id: 1,
-        name: "Updated Test Room",
-        desciption: "Just a test room",
-      },
     }),
   delete: (_url) => Promise.resolve({ status: 202 }),
 };

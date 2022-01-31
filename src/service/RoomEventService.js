@@ -19,7 +19,6 @@ export class RoomEventService {
       const getUrl = roomId
         ? `${URL_ROOMS}/${roomId}/events?page=${page}`
         : `${URL_EVENTS}?page=${page}`;
-      console.log("URL:", getUrl);
 
       this.httpClient
         .get(getUrl)

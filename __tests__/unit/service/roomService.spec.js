@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-import { RoomService } from "service/RoomService.js";
+import { RoomService } from "@/service/RoomService.js";
 
 const room = {
   id: 1,

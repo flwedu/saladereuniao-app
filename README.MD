@@ -36,3 +36,7 @@ Para rodar em modo de desenvolvimento, execute:
 ```bash
 npm run serve
 ```
+
+## Lista de recursos/requisitos
+
+Uma lista com os requisitos funcionais do projeto pode ser encontrada no arquivo `requeriments.MD`.

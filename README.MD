@@ -13,7 +13,7 @@ Foi desenvolvida com o intuito de consolidar meu aprendizado sobre as tecnologia
 - JEST
 - Axios
 
-## Rodando o projeto
+## Preparando o projeto 🪄
 
 Após clonar o projeto, execute:
 
@@ -29,12 +29,10 @@ npm run serve
 
 As configurações para conexão com a API REST do backend estão em `src/config.js`
 
-## Gerando uma build do projeto
+## Rodando a aplicação 🚀
 
-Para gerar uma build de produção, execute:
+Para rodar em modo de desenvolvimento, execute:
 
 ```bash
-npm run build
+npm run serve
 ```
-
-A aplicação será executada utilizando o `vue-cli`.

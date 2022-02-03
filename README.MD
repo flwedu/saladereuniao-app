@@ -31,7 +31,27 @@ As configurações para conexão com a API REST do backend estão em `src/config
 
 ## Rodando a aplicação 🚀
 
-Para rodar em modo de desenvolvimento, execute:
+A aplicação foi projetada para rodar na versão 17 do Nodejs (v17.3.1).
+
+Esse é o script presente no arquivo `package.json` com parâmetros de compatibilidade para versões superiores à 17:
+
+```json
+"scripts": {
+    //... outros scripts
+    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+}
+```
+
+Caso esteja utilizando uma versão do Nodejs anterior à 17, edite o script de inicialização, presente em `package.json`. Esse é um exemplo de como deve ficar o script para versões anteriores do Nodejs:
+
+```json
+"scripts": {
+    //... outros scripts
+    "serve": "vue-cli-service serve",
+}
+```
+
+Após isso, utilize o comando no terminal para rodar em modo de desenvolvimento:
 
 ```bash
 npm run serve

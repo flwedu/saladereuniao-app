@@ -19,7 +19,9 @@ const httpClient = new HttpClient();
 const roomService = new RoomService(httpClient);
 
 export default {
-  components: { RoomCard },
+  components: {
+    "room-card": RoomCard,
+  },
   name: "room-list",
   data: function () {
     return {

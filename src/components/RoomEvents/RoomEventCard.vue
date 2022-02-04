@@ -13,24 +13,8 @@
           readonly="true"
         />
       </label>
-      <label for="startingTime" class="form-field"
-        >Starting at:
-        <input
-          type="datetime"
-          name="startingTime"
-          id="startingTime"
-          :value="startingTimeLocale"
-          readonly="true"
-      /></label>
-      <label for="endingTime" class="form-field"
-        >Ending at:
-        <input
-          type="datetime"
-          name="endingTime"
-          id="endingTime"
-          :value="endingTimeLocale"
-          readonly="true"
-      /></label>
+      <date-time :label="'Starting at :'" :dateTime="roomEvent.startingTime" />
+      <date-time :label="'Ending at :'" :dateTime="roomEvent.endingTime" />
     </div>
     <div class="buttons">
       <input class="button" type="button" value="Edit" />
@@ -39,26 +23,20 @@
 </template>
 
 <script>
+import DateTimeField from "../card/DateTimeField.vue";
 export default {
   name: "room-event-card",
+  components: {
+    "date-time": DateTimeField,
+  },
   props: {
     roomEvent: {
       id: Number,
       name: String,
       description: String,
-      startingTime: Date,
-      endingTime: Date,
+      startingTime: [],
+      endingTime: [],
       roomId: Number,
-    },
-  },
-  computed: {
-    startingTimeLocale: function () {
-      const dateArray = this.roomEvent.startingTime;
-      return new Date(...dateArray).toLocaleString();
-    },
-    endingTimeLocale: function () {
-      const dateArray = this.roomEvent.endingTime;
-      return new Date(...dateArray).toLocaleString();
     },
   },
 };

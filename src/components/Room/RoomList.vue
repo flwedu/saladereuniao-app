@@ -40,8 +40,13 @@ export default {
   },
   computed: {
     filtredRooms() {
-      if (this.filterText)
-        return this.rooms.filter((room) => room.name.contains(this.filterText));
+      if (this.filterText) {
+        const expression = new RegExp(this.filterText.trim(), "i");
+        return this.rooms.filter(
+          (room) =>
+            expression.test(room.name) || expression.test(room.description)
+        );
+      }
       return this.rooms;
     },
   },

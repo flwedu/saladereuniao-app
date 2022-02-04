@@ -2,7 +2,6 @@
   <div>
     <span>{{ label }}</span>
     <label class="form-field">
-      Date:
       <input
         type="datetime-local"
         name="date"
@@ -10,16 +9,6 @@
         :value="localDateTime"
         :readonly="!editingMode"
     /></label>
-    <label class="form-field">
-      Time:
-      <input
-        type="time"
-        name="time"
-        id="time"
-        :value="localTime"
-        :readonly="editing"
-      />
-    </label>
   </div>
 </template>
 
@@ -31,15 +20,10 @@ export default {
     label: String,
     dateTime: [],
   },
-  computed: {
-    localDate() {
-      const [year, month, day] = this.dateTime;
-      return new Date(year, month, day).toLocaleDateString();
-    },
-    localTime() {
-      const [, , , hour, minuts] = this.dateTime;
-      return `${hour}:${minuts}`;
-    },
+  data() {
+    return {
+      localDateTime: new Date(...this.dateTime).toISOString().slice(0, 19),
+    };
   },
 };
 </script>

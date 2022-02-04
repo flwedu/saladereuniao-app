@@ -29,6 +29,11 @@ export default {
   components: {
     "date-time": DateTimeField,
   },
+  data() {
+    return {
+      editingMode: false,
+    };
+  },
   props: {
     roomEvent: {
       id: Number,

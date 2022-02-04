@@ -11,7 +11,7 @@
     <span v-if="!filterText">A list with all avaliable rooms</span>
     <span v-else>A list with filtred rooms</span>
     <div v-if="rooms.length">
-      <room-card v-for="room in rooms" :room="room" :key="room.id" />
+      <room-card v-for="room in filtredRooms" :room="room" :key="room.id" />
     </div>
     <div v-else>
       <span>Loading room list...</span>
@@ -35,7 +35,15 @@ export default {
   data: function () {
     return {
       rooms: [],
+      filterText: "",
     };
+  },
+  computed: {
+    filtredRooms() {
+      if (this.filterText)
+        return this.rooms.filter((room) => room.name.contains(this.filterText));
+      return this.rooms;
+    },
   },
   created: function () {
     roomService

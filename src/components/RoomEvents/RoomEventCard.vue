@@ -16,26 +16,31 @@
       <date-time
         :label="'Starting at :'"
         :dateTime="roomEvent.startingTime"
-        :editing="editingMode"
+        :editingMode="editingMode"
       />
       <date-time
         :label="'Ending at :'"
         :dateTime="roomEvent.endingTime"
-        :editing="editingMode"
+        :editingMode="editingMode"
       />
     </div>
-    <div class="buttons">
-      <input class="button" type="button" value="Edit" />
-    </div>
+    <form-buttons
+      :editingMode="editingMode"
+      @save="save()"
+      @enterEditingMode="enterEditingMode()"
+      @cancel="cancel()"
+    />
   </div>
 </template>
 
 <script>
 import DateTimeField from "../card/DateTimeField.vue";
+import FormButtons from "../card/FormButtons.vue";
 export default {
   name: "room-event-card",
   components: {
     "date-time": DateTimeField,
+    "form-buttons": FormButtons,
   },
   data() {
     return {
@@ -50,6 +55,17 @@ export default {
       startingTime: Date,
       endingTime: Date,
       roomId: Number,
+    },
+  },
+  methods: {
+    enterEditingMode() {
+      this.editingMode = true;
+    },
+    save() {
+      this.editingMode = false;
+    },
+    cancel() {
+      this.editingMode = false;
     },
   },
 };

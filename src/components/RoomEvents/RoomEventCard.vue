@@ -13,8 +13,16 @@
           readonly="true"
         />
       </label>
-      <date-time :label="'Starting at :'" :dateTime="roomEvent.startingTime" />
-      <date-time :label="'Ending at :'" :dateTime="roomEvent.endingTime" />
+      <date-time
+        :label="'Starting at :'"
+        :dateTime="roomEvent.startingTime"
+        :editing="editingMode"
+      />
+      <date-time
+        :label="'Ending at :'"
+        :dateTime="roomEvent.endingTime"
+        :editing="editingMode"
+      />
     </div>
     <div class="buttons">
       <input class="button" type="button" value="Edit" />

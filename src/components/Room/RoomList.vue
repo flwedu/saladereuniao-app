@@ -1,6 +1,15 @@
 <template>
   <section>
-    <span>A list with all avaliable rooms</span>
+    <div>
+      <input
+        type="text"
+        name="filterField"
+        placeholder="Term to filter"
+        v-on:input="filterText = $event.target.value"
+      />
+    </div>
+    <span v-if="!filterText">A list with all avaliable rooms</span>
+    <span v-else>A list with filtred rooms</span>
     <div v-if="rooms.length">
       <room-card v-for="room in rooms" :room="room" :key="room.id" />
     </div>

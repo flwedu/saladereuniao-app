@@ -9,7 +9,7 @@
             name="name"
             id="name"
             v-model="room.name"
-            :readonly="!editing"
+            :readonly="!editingMode"
         /></label>
         <label for="description" class="form-field"
           >room description:<textarea
@@ -18,36 +18,16 @@
             id="description"
             rows="4"
             v-model="room.description"
-            :readonly="!editing"
+            :readonly="!editingMode"
           />
         </label>
       </div>
-      <div class="buttons">
-        <input
-          id="button__edit"
-          class="button"
-          v-if="!editing"
-          type="button"
-          value="Edit"
-          @click="editMode()"
-        />
-        <input
-          id="button__save"
-          class="button"
-          v-if="editing"
-          type="button"
-          value="Save"
-          @click="save()"
-        />
-        <input
-          id="button__cancel"
-          class="button"
-          v-if="editing"
-          type="button"
-          value="Cancel"
-          @click="cancel()"
-        />
-      </div>
+      <form-buttons
+        :editingMode="editingMode"
+        @save="save()"
+        @enterEditingMode="enterEditingMode()"
+        @cancel="cancel()"
+      />
     </form>
     <p>This is a list of all events in this room:</p>
     <room-event-list />
@@ -57,35 +37,36 @@
 <script>
 import { HttpClient } from "../../core/HttpClient";
 import { RoomService } from "../../service/RoomService";
+import FormButtons from "../card/FormButtons.vue";
 import RoomEventList from "../RoomEvents/RoomEventList.vue";
 
 const httpClient = new HttpClient();
 const roomService = new RoomService(httpClient);
 
 export default {
-  components: { RoomEventList },
+  components: { RoomEventList, FormButtons },
   data: function () {
     return {
-      editing: false,
+      editingMode: false,
       room: {},
       roomBackup: String,
     };
   },
   methods: {
-    editMode: function () {
-      this.editing = true;
+    enterEditingMode: function () {
+      this.editingMode = true;
       this.roomBackup = JSON.stringify(this.room);
     },
     save: function () {
-      this.editing = false;
       roomService
         .update(this.room.id, this.room)
         .then(console.log)
         .catch(console.error);
+      this.editingMode = false;
     },
     cancel: function () {
-      this.editing = false;
       this.room = JSON.parse(this.roomBackup);
+      this.editingMode = false;
     },
   },
   created: function () {
@@ -118,14 +99,5 @@ textarea {
 .form-field {
   display: flex;
   flex-direction: column;
-}
-
-/* Button colors */
-#button__save {
-  background: var(--color-sucess);
-}
-
-#button__cancel {
-  background: var(--color-danger);
 }
 </style>

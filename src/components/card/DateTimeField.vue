@@ -4,11 +4,11 @@
     <label class="form-field">
       Date:
       <input
-        type="date"
+        type="datetime-local"
         name="date"
         id="date"
-        :value="localDate"
-        :readonly="editing"
+        :value="localDateTime"
+        :readonly="!editingMode"
     /></label>
     <label class="form-field">
       Time:
@@ -27,7 +27,7 @@
 export default {
   name: "date-time",
   props: {
-    editing: Boolean,
+    editingMode: Boolean,
     label: String,
     dateTime: [],
   },

@@ -3,8 +3,8 @@ export function dateParser(value) {
       toString() {
         const [year, month, day, hour, minuts, seconds] = value;
         return `${year}-${
-          Number(month) + 1}-${
-          Number(day) + 1}T${
+          String(Number(month) + 1).padStart(2, "0")}-${
+          String(Number(day) + 1).padStart(2, "0")}T${
           String(hour).padStart(2, "0")}:${
           String(minuts).padStart(2, "0")}:${
           String(seconds).padStart(2, "0")}`;

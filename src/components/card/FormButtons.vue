@@ -6,7 +6,7 @@
       v-if="!editingMode"
       type="button"
       value="Edit"
-      @click="enterEditingMode()"
+      @click="$emit('enterEditingMode')"
     />
     <input
       id="button__save"
@@ -14,7 +14,7 @@
       v-if="editingMode"
       type="button"
       value="Save"
-      @click="save()"
+      @click="$emit('save')"
     />
     <input
       id="button__cancel"
@@ -22,7 +22,7 @@
       v-if="editingMode"
       type="button"
       value="Cancel"
-      @click="cancel()"
+      @click="$emit('cancel')"
     />
   </div>
 </template>
@@ -32,17 +32,6 @@ export default {
   name: "form-buttons",
   props: {
     editingMode: Boolean,
-  },
-  methods: {
-    enterEditingMode() {
-      this.$emit("enterEditingMode");
-    },
-    save() {
-      this.$emit("save");
-    },
-    cancel() {
-      this.$emit("cancel");
-    },
   },
 };
 </script>

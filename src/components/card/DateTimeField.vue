@@ -7,6 +7,7 @@
         name="date"
         id="date"
         :value="localDateTime"
+        @input="setLocalDateTime($event.target.value)"
         :readonly="!editingMode"
     /></label>
   </div>
@@ -23,6 +24,13 @@ export default {
   computed: {
     localDateTime() {
       return new Date(...this.dateTime).toISOString().slice(0, 19);
+    },
+  },
+  methods: {
+    setLocalDateTime(value) {
+      const [, ...dateArray] =
+        /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/.exec(value);
+      this.$emit("setLocalDateTime", dateArray);
     },
   },
 };

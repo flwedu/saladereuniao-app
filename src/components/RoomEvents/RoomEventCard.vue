@@ -17,11 +17,13 @@
         :label="'Starting at :'"
         :dateTime="roomEvent.startingTime"
         :editingMode="editingMode"
+        @setLocalDateTime="roomEvent.startingTime = $event"
       />
       <date-time
         :label="'Ending at :'"
         :dateTime="roomEvent.endingTime"
         :editingMode="editingMode"
+        @setLocalDateTime="roomEvent.endingTime = $event"
       />
     </div>
     <form-buttons

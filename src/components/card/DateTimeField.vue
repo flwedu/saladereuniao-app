@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { dateParser } from "../../utils/dateParser"
+
 export default {
   name: "date-time",
   props: {
@@ -23,13 +25,12 @@ export default {
   },
   computed: {
     localDateTime() {
-      return new Date(...this.dateTime).toISOString().slice(0, 19);
+      return dateParser(this.dateTime).toString();
     },
   },
   methods: {
     setLocalDateTime(value) {
-      const [, ...dateArray] =
-        /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/.exec(value);
+      const dateArray = dateParser(value).toArray();
       this.$emit("setLocalDateTime", dateArray);
     },
   },

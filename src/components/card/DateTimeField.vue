@@ -20,10 +20,10 @@ export default {
     label: String,
     dateTime: [],
   },
-  data() {
-    return {
-      localDateTime: new Date(...this.dateTime).toISOString().slice(0, 19),
-    };
+  computed: {
+    localDateTime() {
+      return new Date(...this.dateTime).toISOString().slice(0, 19);
+    },
   },
 };
 </script>

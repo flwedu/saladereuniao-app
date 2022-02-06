@@ -1,5 +1,14 @@
+/**
+ * This function converts date String to Array or Array to String
+ * @param {*} value 
+ * @returns 
+ */
 export function dateParser(value) {
     return {
+      /**
+       * 
+       * @returns a String in format "yyyy-MM-dd'T'dd:mm:ss"
+       */
       toString() {
         const [year, month, day, hour, minuts, seconds] = value;
         return `${year}-${
@@ -9,6 +18,10 @@ export function dateParser(value) {
           String(minuts).padStart(2, "0")}:${
           String(seconds).padStart(2, "0")}`;
       },
+      /**
+       * 
+       * @returns an array with numbers representing the date & timefields
+       */
       toArray(){
         // The regex expression is used to extract the values from a date string
         // Format: yyyy-MM-dd'T'HH:mm:s

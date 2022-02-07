@@ -1,4 +1,4 @@
-import { dateParser } from "../../../src/utils/dateParser";
+import { dateParser } from "@/utils/dateParser";
 
 it("Should convert an array to a valid date string", () => {
   const array = [2022, 10, 9, 14, 0, 30];

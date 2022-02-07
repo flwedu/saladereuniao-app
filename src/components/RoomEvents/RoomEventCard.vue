@@ -70,6 +70,11 @@ export default {
       this.editingMode = true;
     },
     save() {
+      const json = JSON.stringify(this.roomEvent);
+      roomEventService
+        .update(this.roomEvent.id, json)
+        .then(console.log)
+        .catch(console.error);
       this.editingMode = false;
     },
     cancel() {

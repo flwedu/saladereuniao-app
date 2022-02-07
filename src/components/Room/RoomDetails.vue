@@ -37,7 +37,7 @@
 <script>
 import { HttpClient } from "../../core/HttpClient";
 import { RoomService } from "../../service/RoomService";
-import FormButtons from "../card/FormButtons.vue";
+import FormButtons from "../shared/FormButtons.vue";
 import RoomEventList from "../RoomEvents/RoomEventList.vue";
 
 const httpClient = new HttpClient();

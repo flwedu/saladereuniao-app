@@ -36,8 +36,14 @@
 </template>
 
 <script>
-import DateTimeField from "../card/DateTimeField.vue";
-import FormButtons from "../card/FormButtons.vue";
+import DateTimeField from "../shared/DateTimeField.vue";
+import FormButtons from "../shared/FormButtons.vue";
+import { HttpClient } from "../../core/HttpClient";
+import { RoomEventService } from "../../service/RoomEventService";
+
+const httpClient = new HttpClient();
+const roomEventService = new RoomEventService(httpClient);
+
 export default {
   name: "room-event-card",
   components: {

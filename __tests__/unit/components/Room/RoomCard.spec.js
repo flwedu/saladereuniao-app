@@ -20,10 +20,10 @@ describe("RoomCard.vue component", () => {
     });
 
     const head = wrapper.findAll(".card > .head > span");
-    expect(head.at(0).text()).toContain("1");
-    expect(head.at(1).text()).toContain(room.name);
+    expect(head.at(0).text()).toEqual(String(room.id));
+    expect(head.at(1).text()).toEqual(room.name);
 
-    const body = wrapper.find(".body");
-    expect(body.text()).toContain(room.description);
+    const bodySpan = wrapper.find(".body span");
+    expect(bodySpan.text()).toContain(room.description);
   });
 });

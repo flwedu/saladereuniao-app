@@ -1,22 +1,29 @@
-import { shallowMount } from "@vue/test-utils";
 import RoomCard from "@/components/Room/RoomCard.vue";
+import { mount, RouterLinkStub } from "@vue/test-utils";
 
-const roomData = {
+const room = {
   id: 1,
   name: "Test Room",
   description: "No description",
 };
 
 describe("RoomCard.vue component", () => {
-  it("Component should render correct data", () => {
-    const wrapper = shallowMount(RoomCard, {
+  it("Component should render correct data from props", () => {
+    const wrapper = mount(RoomCard, {
       name: "room-card",
-      props: {
-        room: { ...roomData },
+      propsData: {
+        room,
       },
-      components: {},
+      components: {
+        "router-link": RouterLinkStub
+      },
     });
 
-    expect(wrapper.find(".card .head").contains("span")).toBeTruthy();
+    const head = wrapper.findAll(".card > .head > span");
+    expect(head.at(0).text()).toContain("1");
+    expect(head.at(1).text()).toContain(room.name);
+
+    const body = wrapper.find(".body");
+    expect(body.text()).toContain(room.description);
   });
 });

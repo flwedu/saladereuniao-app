@@ -51,5 +51,6 @@ export default {
 .grid {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
 }
 </style>

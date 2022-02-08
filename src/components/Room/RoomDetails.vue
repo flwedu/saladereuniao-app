@@ -1,6 +1,6 @@
 <template>
-  <div v-if="room">
-    <form action="" method="post" class="card">
+  <section>
+    <div class="card" v-if="room">
       <div class="head"><span>Room Details</span></div>
       <div class="body">
         <label for="name" class="form-field"
@@ -28,10 +28,10 @@
         @enterEditingMode="enterEditingMode()"
         @cancel="cancel()"
       />
-    </form>
+    </div>
     <p>This is a list of all events in this room:</p>
     <room-event-list />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -78,10 +78,11 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Adjusting the height inherited from RoomCard component */
-.card {
-  height: 16rem;
+<style>
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card > .body {

@@ -1,18 +1,27 @@
 import axios from "axios";
 export class HttpClient {
+
+  constructor(){
+    this.axios = axios.create({
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+  }
+
   get(url) {
-    return axios.get(url);
+    return this.axios.get(url);
   }
 
   post(url, data) {
-    return axios.post(url, data);
+    return this.axios.post(url, data);
   }
 
   put(url, data) {
-    return axios.put(url, data);
+    return this.axios.put(url, data);
   }
 
   delete(url) {
-    return axios.delete(url);
+    return this.axios.delete(url);
   }
 }

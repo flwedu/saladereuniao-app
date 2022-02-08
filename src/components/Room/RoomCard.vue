@@ -34,7 +34,7 @@ export default {
 <style>
 .card {
   width: 20rem;
-  height: 16rem;
+  height: 18rem;
   border: 1px var(--color-border) solid;
   border-radius: 5px;
   box-shadow: 0.2rem 0.3rem 0.5rem var(--color-dark);

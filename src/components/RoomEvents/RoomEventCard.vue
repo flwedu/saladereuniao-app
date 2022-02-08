@@ -85,10 +85,6 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  height: 18rem;
-}
-
 .form-field {
   display: flex;
   flex-direction: column;

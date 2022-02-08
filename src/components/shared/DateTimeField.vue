@@ -37,4 +37,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+input[type="datetime-local"]{
+  padding: 2px;
+}
+</style>

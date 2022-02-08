@@ -10,7 +10,7 @@
           id="description"
           v-model="roomEvent.description"
           rows="4"
-          readonly="true"
+          :readonly="!editingMode"
         />
       </label>
       <date-time

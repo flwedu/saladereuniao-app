@@ -21,12 +21,6 @@ Após clonar o projeto, execute:
 npm install
 ```
 
-E depois
-
-```bash
-npm run serve
-```
-
 As configurações para conexão com a API REST do backend estão em `src/config.js`
 
 ## Rodando a aplicação 🚀

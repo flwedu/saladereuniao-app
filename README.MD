@@ -29,18 +29,22 @@ A aplicação foi projetada para rodar na versão 17 do Nodejs (v17.3.1).
 
 Esse é o script presente no arquivo `package.json` com parâmetros de compatibilidade para versões superiores à 17:
 
-```json
+```text
 "scripts": {
+
     //... outros scripts
+    
     "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
 }
 ```
 
 Caso esteja utilizando uma versão do Nodejs anterior à 17, edite o script de inicialização, presente em `package.json`. Esse é um exemplo de como deve ficar o script para versões anteriores do Nodejs:
 
-```json
+```text
 "scripts": {
+
     //... outros scripts
+    
     "serve": "vue-cli-service serve",
 }
 ```
@@ -53,4 +57,4 @@ npm run serve
 
 ## Lista de recursos/requisitos
 
-Uma lista com os requisitos funcionais do projeto pode ser encontrada no arquivo `requeriments.MD`.
+Uma lista com os requisitos funcionais do projeto pode ser encontrada no arquivo [requirements.MD](./requirements.MD).
